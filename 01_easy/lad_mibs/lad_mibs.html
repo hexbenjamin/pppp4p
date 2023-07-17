@@ -13,12 +13,16 @@
 
 <body>
   <py-config>
+    packages = ["rich"]
+    [splashscreen]
+    autoclose = true
     [[fetch]]
-    from = "https://raw.githubusercontent.com/hexbenjamin/pppp4p/main/01_easy/lad-mibs/"
-    files = ["lad-mibs.py"]
+    from = "https://raw.githubusercontent.com/hexbenjamin/pppp4p/main/01_easy/lad_mibs/"
+    files = ["lad_mibs.py"]
   </py-config>
+  <py-terminal></py-terminal>
   <py-script>
-    from lad-mibs import *
+    from lad_mibs import *
     lm = BeeMovieLM()
   </py-script>
 </body>
