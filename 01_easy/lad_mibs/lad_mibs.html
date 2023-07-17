@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
   <py-config>
     packages = ["rich"]
     [splashscreen]
@@ -20,11 +21,30 @@
     from = "https://raw.githubusercontent.com/hexbenjamin/pppp4p/main/01_easy/lad_mibs/"
     files = ["lad_mibs.py"]
   </py-config>
-  <py-terminal></py-terminal>
+
+  <py-terminal xterm="true"></py-terminal>
+
+  <py-script>
+    import js
+    import asyncio
+
+    async def adjust_term_size(columns, rows):
+    xterm = await js.document.querySelector('py-terminal').xtermReady
+    xterm.resize(columns, rows)
+
+    asyncio.ensure_future(adjust_term_size(40,10))
+  </py-script>
+
   <py-script>
     from lad_mibs import *
     lm = BeeMovieLM()
+    fill_ladmib(lm)
+    CONSOLE.print("\nLAD MIB complete.", style="bold green")
+    CONSOLE.print("\nprinting result...", style="italic")
+    sleep(3)
+    CONSOLE.print("\n---\n" + ladmib.get_printable())
   </py-script>
+
 </body>
 
 </html>

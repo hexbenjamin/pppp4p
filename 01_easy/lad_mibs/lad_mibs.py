@@ -5,7 +5,7 @@ from typing import Dict, Protocol
 from rich.console import Console
 from rich.theme import Theme
 
-CONSOLE = Console(color_system="termcolor", theme=Theme(inherit=False))
+CONSOLE = Console(color_system="truecolor", theme=Theme(inherit=False))
 
 
 class LadMib(Protocol):
